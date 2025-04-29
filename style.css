@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    
+    /* border: 1px solid blue; */
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #d32f2f;
+    height: 60px;
+}
+
+/* Navigation */
+nav {
+    background-color: #ffffff; /* Белый фон в исходном положении */
+    padding: 2px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    transition: all 0.3s ease;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+nav .logo {
+    width: 80px;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+nav .logo:hover {
+    transform: scale(1.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: #d32f2f; /* Красный текст в исходном положении */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav.fixed ul li a {
+    color: white; /* Белый текст при фиксации */
+}
+
+nav ul li a:hover {
+    color: #ffeb3b; /* Желтый при наведении */
+}
+
+/* Sections */
+section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Красный фон и белый текст */
+#intro, #school, #family, #project {
+    background-color: #d32f2f;
+    color: white;
+}
+
+/* Белый фон и красный текст */
+#about, #classmates, #ancestors {
+    background-color: white;
+    color: #d32f2f;
+}
+
+#intro {
+    background: url('./2.jpeg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+}
+
+#intro h1, #school h2, #family h2, #project h2 {
+    color: white; /* Белые заголовки на красном фоне */
+}
+
+#about h2, #classmates h2, #ancestors h2 {
+    color: #d32f2f; /* Красные заголовки на белом фоне */
+}
+
+p, ul {
+    color: inherit; /* Цвет текста наследуется от секции */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+/* Slider */
+.slider {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.ancestors-list {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.ancestors-list li {
+    margin: 10px 0;
+    color: inherit;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 8px;
+        padding: 8px 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    nav .logo {
+        width: 60px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    .slides img {
+        height: 300px;
+    }
+}
