@@ -159,7 +159,7 @@ img {
 
 /* Интро */
 #intro {
-    background: url('./2.jpeg') no-repeat center center/cover;
+    background: url('./images/2.jpeg') no-repeat center center/cover;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -210,7 +210,7 @@ section.visible {
     left: 0;
     width: 100%;
     height: 30px;
-    background: url('./ornament24.png') repeat-x center center;
+    background: url('./images/ornament24.png') repeat-x center center;
 }
 #school::before{
     content: '';
@@ -219,7 +219,7 @@ section.visible {
     height: 170px;
     top: -150px;
     left: 50%;
-    background: url('./woman-top.webp')no-repeat center /cover;
+    background: url('./images/woman-top.webp')no-repeat center /cover;
 }
 /* Стили для секций с красным фоном */
 #school, #family, #project {
@@ -277,7 +277,7 @@ section.visible {
     height: 200px;
     top: 0;
     left: 20%;
-    background: url('./Footer-p-1600.webp')no-repeat center/contain;
+    background: url('./images/Footer-p-1600.webp')no-repeat center/contain;
     z-index: 1;
     opacity: 0.5;
 }
@@ -342,7 +342,7 @@ section p {
     transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    background: url('./svitok1.png') no-repeat center/100% 100%;
+    background: url('./images/svitok1.png') no-repeat center/100% 100%;
     opacity: 0.9;
 }
 .ancestors-list li {
@@ -404,6 +404,47 @@ section p {
     font-size: 1rem;
 }
 
+
+/* Секция "Проект" */
+.work {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.work img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 10px;
+}
+
+/* Футер */
+footer {
+    background: #d00000;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    position: relative;
+}
+footer::before{
+    content:'';
+    position: absolute;
+    top: -90%;
+    left: 50%;
+    width: 100px;
+    height: 60px;
+    background: url('./images/party_man.gif') no-repeat center /cover
+}
+
+footer.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Адаптивность */
 @media (max-width: 768px) {
     section p {
@@ -449,50 +490,6 @@ section p {
     .description {
         font-size: 0.9rem;
     }
-}
-
-/* Секция "Проект" */
-.work {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.work img {
-    width: 100%;
-    max-width: 250px;
-    border-radius: 10px;
-}
-
-/* Футер */
-footer {
-    background: #d00000;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    position: relative;
-}
-footer::before{
-    content:'';
-    position: absolute;
-    top: -90%;
-    left: 50%;
-    width: 100px;
-    height: 60px;
-    background: url('./party_man.gif') no-repeat center /cover
-}
-
-footer.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
     .hamburger-btn {
         display: block;
     }
