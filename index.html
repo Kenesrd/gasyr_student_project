@@ -11,8 +11,11 @@
 </head>
 <body>
 
-    <nav id="nav">
-        
+    <button class="hamburger-btn">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <nav id="nav" class="">
         <ul>
             <li><a href="#about"><i class="fas fa-user"></i> Обо мне</a></li>
             <li><a href="#school"><i class="fas fa-school"></i> Моя школа</a></li>
@@ -39,50 +42,100 @@
         </div>
         <div class="info">
             <h2>Обо мне</h2>
-            <p>Здесь немного о себе: мои увлечения, интересы и цели.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio officiis qui optio earum sint porro possimus aliquid expedita, neque fugiat saepe aut nulla facilis voluptas vero asperiores est ut maiores.
-            Amet deserunt quo, itaque incidunt suscipit, quibusdam repellendus esse magnam nihil autem distinctio optio aspernatur debitis perspiciatis rem adipisci officia aliquid labore culpa voluptatum cumque est provident quos. Earum, quidem.</p>
+            <p>Привет! Меня зовут [Ваше имя], и я ученик <span class="highlight">Gasyr Lyceum</span> в городе Актау. Я увлеченный и любознательный человек, который любит открывать для себя что-то новое каждый день!</p>
+        <p>Мои интересы довольно разнообразны: я обожаю читать фантастику, программировать небольшие проекты, играть в футбол с друзьями и изучать историю. В школе я особенно люблю уроки математики и информатики, потому что они помогают мне развивать логику и творческое мышление. Моя мечта — стать разработчиком, который создаст что-то крутое и полезное для людей.</p>
+        <p>В свободное время я люблю проводить время с семьей, гулять по набережной Актау и мечтать о будущем. Я верю, что с упорством и желанием можно достичь любых целей, и стараюсь каждый день становиться лучше!</p>
         </div>
     </section>
 
     <section id="school">
         <h2>Моя школа</h2>
-        <p>Я учусь в Gasyr Lyceum. Это замечательное место, где я получаю знания и нахожу друзей.</p>
+        <p>Я учусь в <span class="highlight">Gasyr Lyceum</span>. Это замечательное место, где я получаю знания и нахожу друзей.</p>
         <img src="./2.jpeg" alt="Фото школы">
+        <p>Моя школа — это место, где я получаю знания и встречаюсь с друзьями. Она находится в городе Актау, и я горжусь быть ее учеником!</p>
     </section>
 
     <section id="classmates">
         <h2>Мои одноклассники</h2>
         <p>Мы классная команда! Вот наше общее фото.</p>
         <img src="./1.jpg" alt="Фото одноклассников">
+        <p>Мои одноклассники — это моя вторая семья. Мы вместе учимся, веселимся и поддерживаем друг друга.</p>
     </section>
 
     <section id="family">
         <h2>Моя семья</h2>
         <p>Моя семья — моя поддержка и опора.</p>
+        <p>Моя семья состоит из [описание семьи].</p>
         <img src="https://cdn.culture.ru/images/0e523db1-a788-5c23-be4c-2a7b178abf66" alt="Фото семьи">
     </section>
 
     <section id="ancestors">
         <h2>Семь поколений предков</h2>
+        <p>Здесь представлены семь поколений моих предков, каждое из которых передает наследие следующему:</p>
         <ul class="ancestors-list">
-            <li>1. [Имя прадеда 1]</li>
-            <li>2. [Имя прадеда 2]</li>
-            <li>3. [Имя прадеда 3]</li>
-            <li>4. [Имя прадеда 4]</li>
-            <li>5. [Имя прадеда 5]</li>
-            <li>6. [Имя прадеда 6]</li>
-            <li>7. [Имя прадеда 7]</li>
+            <li>
+                <span class="generation highlight_white">1-е поколение:</span> [Имя прадеда 1]
+                <span class="description"> </span>
+            </li>
+            <li>
+                <span class="generation highlight_white">2-е поколение:</span> [Имя прадеда 2]
+                <span class="description"></span>
+            </li>
+            <li>
+                <span class="generation highlight_white">3-е поколение:</span> [Имя прадеда 3]
+                <span class="description"></span>
+            </li>
+            <li>
+                <span class="generation highlight_white">4-е поколение:</span> [Имя прадеда 4]
+                <span class="description"></span>
+            </li>
+            <li>
+                <span class="generation highlight_white">5-е поколение:</span> [Имя прадеда 5]
+                <span class="description"></span>
+            </li>
+            <li>
+                <span class="generation highlight_white">6-е поколение:</span> [Имя дедушки]
+                <span class="description"></span>
+            </li>
+            <li>
+                <span class="generation highlight_white">7-е поколение:</span> [Имя папы]
+                <span class="description"></span>
+            </li>
         </ul>
     </section>
 
-    <section id="project">
+    <section id="project" style="overflow: hidden;">
         <h2>Мой проект</h2>
         <p>Это мой крутой проект, над которым я работал. Здесь описание, что это и почему это важно.</p>
-        <img src="project.jpg" alt="Фото проекта">
+        <div class="work">
+            <img src="./1.jpg" alt="Фото проекта">
+            <img src="./1.jpg" alt="Фото проекта">
+            <img src="./1.jpg" alt="Фото проекта">
+        </div>
+        
     </section>
 
+    <footer>
+        <p>© 2025 [Ваше имя]. Все права защищены.</p>
+    </footer>
+
     <script>
+         // Анимация при прокрутке
+         const sections = document.querySelectorAll('section, footer');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
 
         // Слайдер
        
@@ -181,6 +234,39 @@
         document.body.insertAdjacentHTML("beforeend", "<span id='s"+i+"' style='pointer-events:none;user-select:none;position:fixed;top:-"+snowmaxsize+"'>"+snowletter+"</span>")
     }
     window.onload=initsnow
+
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const hamburgerBtn = document.querySelector('.hamburger-btn');
+    const nav = document.querySelector('nav');
+    
+    hamburgerBtn.addEventListener('click', function() {
+        nav.classList.toggle('active');
+        
+        // Меняем иконку
+        const icon = this.querySelector('i');
+        if (nav.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+    
+    // Закрываем меню при клике на ссылку
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                nav.classList.remove('active');
+                hamburgerBtn.querySelector('i').classList.remove('fa-times');
+                hamburgerBtn.querySelector('i').classList.add('fa-bars');
+            }
+        });
+    });
+});
     </script>
 </body>
 </html>

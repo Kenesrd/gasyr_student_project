@@ -1,37 +1,58 @@
+/* Общие стили */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box !important;
     font-family: "Montserrat Alternates", sans-serif;
-  font-style: normal;
-    
-    /* border: 1px solid blue; */
+    font-style: normal;
+    /* border: 1px solid red; */
 }
 
 body {
     background-color: #f5f5f5;
     color: #333;
     line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
 }
 
+/* Кнопка гамбургер-меню */
+.hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #d32f2f;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    transition: color 0.3s ease;
+}
 
-/* Navigation */
+.hamburger-btn:hover {
+    color: #4f222b;
+}
+
+/* Навигация */
 nav {
-    background-color: #ffffff; /* Белый фон в исходном положении */
-    padding: 2px 20px;
+    background-color: #ffffff;
+    padding: 5px 20px;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    /* position: sticky; */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.3);
 }
-
-
 
 nav .logo {
     width: 80px;
     height: auto;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
 }
 
 nav .logo:hover {
@@ -43,109 +64,70 @@ nav ul {
     display: flex;
     gap: 20px;
 }
-nav ul li{
+
+nav ul li {
     padding: 0 7px;
-    transition: all .3s ease-in-out;
+    transition: transform 0.3s ease;
+}
+
+nav ul li:hover {
+    transform: scale(1.1);
 }
 
 nav ul li a {
-    color: #d32f2f; /* Красный текст в исходном положении */
+    color: #d32f2f;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 16px;
-    transition: all .3s ease-in-out;
+    transition: color 0.3s ease;
 }
 
-nav.fixed ul li a {
-    color: white; /* Белый текст при фиксации */
-}
-nav ul li:hover{
-    transform: scale(1.1);
-}
 nav ul li a:hover {
-    color: #4f222b; /* Желтый при наведении */
-    
-}
-/* Sections */
-section {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: 20px auto;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
-}
-section::after{
-    content:'';
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    width: 100%;
-    height: 30px;
-    background: url('./ornament24.png')repeat-x center center;
-}
-#intro {
-    background: url('./2.jpeg') no-repeat center center/cover;
-    height: 100vh;
-    display: flex;
-    position: relative;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
-#intro > h1{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #fff;
-    color: #d32f2f;
-    padding: 5px 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #4f222b;
 }
 
-
-
-/* Красный фон и белый текст */
- #school, #family, #project {
-    background-color: #d32f2f;
-    color: white;
-}
-
-/* Белый фон и красный текст */
-#about, #classmates, #ancestors {
-    background-color: white;
-    color: #d32f2f;
-}
-
-
-
- h2 {
+h2 {
     margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 15px;
+    font-size: 2rem;
+    font-weight: 600;
 }
 
-#school h2, #family h2, #project h2 {
-    color: white; /* Белые заголовки на красном фоне */
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(to right, #d32f2f, #4f222b);
+    border-radius: 2px;
 }
 
-#about h2, #classmates h2, #ancestors h2 {
-    color: #d32f2f; /* Красные заголовки на белом фоне */
+/* Для секций с белым фоном */
+#about h2::after, #classmates h2::after, #ancestors h2::after {
+    background: linear-gradient(to right, #d32f2f, #4f222b);
 }
 
-#about{display: flex;}
-
-#about .info > p{
-    margin: 0px 0px 10px 40px;
-
+/* Для секций с красным фоном */
+#school h2::after, #family h2::after, #project h2::after {
+    background: linear-gradient(to right, #ffffff, #f5f5f5); /* Белый градиент для контраста */
 }
 
-#about .info p{
-    line-height: 1.6;
-    color: #666;
+/* Анимация при появлении */
+section.visible h2::after {
+    animation: underline 0.5s ease forwards;
 }
 
-p, ul {
-    color: inherit; /* Цвет текста наследуется от секции */
+@keyframes underline {
+    from {
+        transform: translateX(-50%) scaleX(0);
+    }
+    to {
+        transform: translateX(-50%) scaleX(1);
+    }
 }
 
 img {
@@ -154,58 +136,438 @@ img {
     border-radius: 10px;
     margin: 20px 0;
 }
-
-
-
-#ancestors{
-    position: relative;
-    height: 100vh;
+.highlight {
+    background: #4f222b; /* Темно-красный фон */
+    color: #ffffff; /* Белый текст */
+    padding: 2px 8px; /* Отступы для "тега" */
+    border-radius: 5px; /* Скругленные углы */
+    font-weight: 600; /* Полужирное начертание */
 }
-#ancestors::before{
+.highlight_white{
+    background: #fff;
+    padding: 2px 8px; /* Отступы для "тега" */
+    border-radius: 5px; /* Скругленные углы */
+    font-weight: 600; /* Полужирное начертание */
+}
+.highlight_red{
+    background: #d32f2f;
+    color: #fff;
+    padding: 2px 8px; /* Отступы для "тега" */
+    border-radius: 5px; /* Скругленные углы */
+    font-weight: 600; /* Полужирное начертание */
+}
+
+/* Интро */
+#intro {
+    background: url('./2.jpeg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+}
+#intro h1 {
+    background: rgba(255, 255, 255, 0.9);
+    color: #d32f2f;
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 2.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+/* Секции */
+section {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    scroll-margin-top: 80px;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#school{
+    margin-top: 160px;
+    position: relative;
+}
+
+#school::after, #family::after, #project::after {
+    content: '';
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background: url('./ornament24.png') repeat-x center center;
+}
+#school::before{
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 170px;
+    top: -150px;
+    left: 50%;
+    background: url('./woman-top.webp')no-repeat center /cover;
+}
+/* Стили для секций с красным фоном */
+#school, #family, #project {
+    background-color: #d32f2f;
+    color: white;
+}
+
+#school h2, #family h2, #project h2 {
+    color: white;
+}
+
+/* Стили для секций с белым фоном */
+#about, #classmates, #ancestors {
+    background-color: white;
+    color: #d32f2f;
+}
+
+#about h2, #classmates h2, #ancestors h2 {
+    color: #d32f2f;
+}
+
+/* Секция "Обо мне" */
+#about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+}
+
+#about .image img {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+
+#about .info p {
+    color: #666;
+    font-size: 1.2rem;
+    /* margin: 10px 0; */
+    text-align: left;
+}
+#classmates{
+    position: relative;
+}
+#classmates h2, #classmates p{
+    z-index: 4;
+}
+
+#classmates::after{
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    top: 0;
+    left: 20%;
+    background: url('./Footer-p-1600.webp')no-repeat center/contain;
+    z-index: 1;
+    opacity: 0.5;
+}
+#classmates > img{
+    width: 60%;
+    height: 10% !important;
+}
+
+/* Секция "Предки" */
+#ancestors {
+    background-color: white;
+    color: #d32f2f;
+    position: relative;
+    min-height: 100vh;
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+section p {
+    text-align: center;
+    color: #000;
+    font-size: 1.4rem;
+}
+
+#ancestors h2 {
+    color: #d32f2f;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+#ancestors h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, #d32f2f, #4f222b);
+    border-radius: 2px;
+}
+
+.ancestors-list {
+    width: 720px;
+    height: 641px;
+    padding-top: 100px;
+    /* margin: 50px auto; */
+    position: relative;
+}
+.ancestors-list::before {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 41%;
-    height: 70%;
-    background: url('./7ata.png') no-repeat center/cover;
+    width: 100%;
+    height: 100%;
+    background: url('./svitok1.png') no-repeat center/100% 100%;
+    opacity: 0.9;
 }
-.ancestors-list {
-    text-align: left;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
 .ancestors-list li {
-    margin: 10px 0;
-    color: inherit;
+    list-style: none;
+    position: relative;
+    margin: 22px 0;
+    padding-left: 50px;
+    font-size: 1.2rem;
+    color: #ECC569;
+    line-height: 1.5;
+    transition: transform 0.3s ease;
+    width: 450px;
+    justify-self: center;
 }
 
+.ancestors-list li:hover {
+    transform: translateX(10px);
+}
 
+.ancestors-list li::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #ECC569;
+    transform: translateX(-50%);
+}
 
-/* Responsive */
+.ancestors-list li::after {
+    content: '➤';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ECC569;
+    font-size: 1.5rem;
+}
+
+.ancestors-list li:first-child::before {
+    top: 50%;
+}
+
+.ancestors-list li:last-child::before {
+    bottom: 50%;
+}
+
+.generation {
+    color: #d32f2f;
+    font-weight: 700;
+    margin-right: 10px;
+    
+}
+
+.description {
+    color: #666;
+    font-style: italic;
+    font-size: 1rem;
+}
+
+/* Адаптивность */
 @media (max-width: 768px) {
+    section p {
+        text-align: center;
+        color: #000;
+        font-size: 0.9rem;
+        
+    }
+    #school::before{
+        top: -150px;
+        left: 5%;
+    }
+    #about .info p {
+        font-size: 0.9rem;
+    }
+    #classmates > img{
+        width: 100%;
+    }
+    #classmates::after{
+        width: 200px;
+        height: 200px;
+    }
+    .ancestors-list {
+        width: 320px;
+        height: 741px;
+        padding-top: 85px;
+    }
+    .ancestors-list li {
+        font-size: 1rem;
+        padding-left: 0px;
+        width: 60%;
+        text-align: center;
+    }
+
+    .ancestors-list li::before{
+        left: -5px;
+    }
+    .ancestors-list li::after{
+        left: -10px;
+        font-size: 1.2rem;
+    }
+
+    .description {
+        font-size: 0.9rem;
+    }
+}
+
+/* Секция "Проект" */
+.work {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.work img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 10px;
+}
+
+/* Футер */
+footer {
+    background: #d00000;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    position: relative;
+}
+footer::before{
+    content:'';
+    position: absolute;
+    top: -90%;
+    left: 50%;
+    width: 100px;
+    height: 60px;
+    background: url('./party_man.gif') no-repeat center /cover
+}
+
+footer.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .hamburger-btn {
+        display: block;
+    }
+
     nav {
+        position: fixed;
         flex-direction: column;
-        gap: 8px;
-        padding: 8px 20px;
+        gap: 15px;
+        padding: 20px;
+        height: 100vh;
+        width: 100%;
+        top: 0;
+        left: -100%;
+        transition: left 0.3s ease;
+    }
+
+    nav.active {
+        left: 0;
     }
 
     nav ul {
         flex-direction: column;
-        gap: 8px;
-    }
-
-    nav .logo {
-        width: 60px;
+        gap: 15px;
+        text-align: center;
     }
 
     nav ul li a {
         font-size: 14px;
     }
 
-    /* .slides img {
-        height: 300px;
-    } */
+    #intro h1 {
+        font-size: 1.5rem;
+        padding: 10px 20px;
+    }
+
+    #about {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    #about .image img {
+        max-width: 200px;
+    }
+
+    .work img {
+        max-width: 200px;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+    footer::before{
+        top: -70%;
+        left: 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    #intro h1 {
+        font-size: 1.2rem;
+    }
+
+    nav ul li a {
+        font-size: 1.2rem;
+    }
+
+    section {
+        padding: 40px 15px;
+    }
+
+    .work img {
+        max-width: 150px;
+    }
 }
